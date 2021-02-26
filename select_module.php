@@ -7,28 +7,8 @@
 // COMUNES
 require_once dirname(__FILE__)."/lib/common.php";
 
-// creacion/seleccion modulo
-require_once(dirname(__FILE__)."/create_blank_module.php");
+//Objetivo listar los modulos existentes en app/code
+// y seleccionar existente o crear uno nuevo
 
-
-//ESPECIFICO de creacr controller
-//creo arhivo action dentro de carpeta controllers
-$MODULE_ETC_CONTROLLER = join_path($gMODULE_ROOT,"Controller");
-createFolder($MODULE_ETC_CONTROLLER);
-
-// Input section 
-
-//create routes.xml segun area (frontend | adminhtml)
-$area = yesNoQuestion("Area frontend ?","frontend","adminhtml");
-//end point
-$end_point= _readline('Url end-point frontname/controller/action (eg: test/page/view) ',"test/page/view"); 
-
-list($frontname,$controller,$action) = explode("/",$end_point);
-
-//TODO improve function to check valid names
-$frontname= fixName($frontname);
-$controller= fixName($controller);
-$action= fixName($action);
-
-createFileRoutes($gMODULE_ROOT , $gMODULE_NAME , $area , $frontname);
-createFileAction($gMODULE_ROOT, $gVENDOR , $gMODULE , $controller , $action);
+$vendors = M2::getExistingsVendors();
+print_r($vendors);

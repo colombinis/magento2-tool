@@ -1,15 +1,27 @@
 <?php
 
+require_once(dirname(__FILE__)."/M2.php");
+
 //////////////// GLOBALS
 $CURRENT= dirname(__FILE__);
-$MAGENTO_APP= realpath(join_path($CURRENT,"..","..","app"));
-$MAGENTO_APP_ETC= join_path( $MAGENTO_APP,"etc");
-$MAGENTO_APP_CODE= join_path( $MAGENTO_APP,"code");
-$TEMPLATE_PATH_ROOT = realpath(dirname(__FILE__) . "/../templates/");
+
+//Magento
+$MAGENTO_ROOT = realpath(join_path($CURRENT,"..",".."));
+M2::init( $MAGENTO_ROOT);
+
+$MAGENTO_APP        = M2::getFolder("app");
+$MAGENTO_APP_ETC    = M2::getFolder("etc");
+$MAGENTO_APP_CODE   = M2::getFolder("code");
+
+//Modulo
 $gVENDOR="";
 $gMODULE="";
 $gMODULE_NAME="";
 $gMODULE_ROOT="";
+
+//APP
+$TEMPLATE_PATH_ROOT = realpath(dirname(__FILE__) . "/../templates/");
+
 //////////////// fin GLOBALS
 
 function createFileAction($MODULE_ROOT, $VENDOR , $MODULE , $CONTROLLER, $ACTION)
