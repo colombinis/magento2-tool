@@ -13,7 +13,7 @@ class M2
         self::$MAGE_ROOT = $MAGE_ROOT;
         self::$cache["folder"]['app'] = join_path( $MAGE_ROOT,"app");
         self::$cache["folder"]['etc'] = join_path( $MAGE_ROOT,"app","etc");
-        self::$cache["folder"]['code'] = join_path( $MAGE_ROOT,"app","etc","code");
+        self::$cache["folder"]['code'] = join_path( $MAGE_ROOT,"app","code");
 
     }
     
