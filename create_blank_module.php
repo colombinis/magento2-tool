@@ -39,5 +39,5 @@ function createModule(){
     createFileModule($MODULE_ETC , $gMODULE_NAME);
     createFileRegistration($gMODULE_ROOT , $gMODULE_NAME);
     
-    //TODO: implementar composer.json
+    createFileComposer($gMODULE_ROOT , $gMODULE_NAME,$gVENDOR , $gMODULE);
 }

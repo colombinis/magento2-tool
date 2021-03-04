@@ -24,6 +24,20 @@ $TEMPLATE_PATH_ROOT = realpath(dirname(__FILE__) . "/../templates/");
 
 //////////////// fin GLOBALS
 
+function createFileComposer($MODULE_ROOT , $MODULE_NAME,$VENDOR , $MODULE){
+    // create file composer.json from template
+    $content = getTemplateContent('module/vendor/composer.json', [
+        'VENDOR' => $VENDOR,
+        'MODULE' => $MODULE,
+        'MODULE_NAME' =>  $MODULE_NAME,
+        'VENDOR_COMPOSER' =>  strtolower($VENDOR),
+        'MODULE_NAME_COMPOSER' =>  str_replace("_","-",strtolower($MODULE_NAME))
+    ]);
+
+    $MODULE_FILE_NAME = join_path($MODULE_ROOT , "composer.json" );
+    file_put_contents($MODULE_FILE_NAME, $content);
+}
+
 function createFileAction($MODULE_ROOT, $VENDOR , $MODULE , $CONTROLLER, $ACTION)
 {
 
