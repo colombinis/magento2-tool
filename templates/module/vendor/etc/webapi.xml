@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <route method="GET" url="/V1/[@MODULE_NAME]/:id">
+        <service class="[@VENDOR]\[@MODULE]\Api\[@ENTITY_NAME]RepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route method="GET" url="/V1/[@MODULE_NAME]">
+        <service class="[@VENDOR]\[@MODULE]\Api\[@ENTITY_NAME]RepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+	<route method="PUT" url="/V1/[@MODULE_NAME]/codigo/:id">
+        <service class="[@VENDOR]\[@MODULE]\Api\[@ENTITY_NAME]RepositoryInterface" method="updateById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route method="POST" url="/V1/[@MODULE_NAME]">
+        <service class="[@VENDOR]\[@MODULE]\Api\[@ENTITY_NAME]RepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>
