@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="[@VENDOR]\[@MODULE]\Api\[@ENTITY_NAME]RepositoryInterface" type="[@VENDOR]\[@MODULE]\Model\[@ENTITY_NAME]Repository"/>
+    <preference for="[@VENDOR]\[@MODULE]\Api\Data\[@ENTITY_NAME]Interface" type="[@VENDOR]\[@MODULE]\Model\[@ENTITY_NAME]"/>
+    <preference for="[@VENDOR]\[@MODULE]\Api\Data\[@ENTITY_NAME]SearchResultInterface" type="[@VENDOR]\[@MODULE]\Model\[@ENTITY_NAME]SearchResult"/>
+
+    <!--Admin grid-->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="[@TABLE_NAME]_grid_data_source" xsi:type="string">[@VENDOR]\[@MODULE]\Model\ResourceModel\[@ENTITY_NAME]\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="[@VENDOR]\[@MODULE]\Model\ResourceModel\[@ENTITY_NAME]\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">[@TABLE_NAME]</argument>
+            <argument name="resourceModel" xsi:type="string">[@VENDOR]\[@MODULE]\Model\ResourceModel\[@ENTITY_NAME]</argument>
+        </arguments>
+    </virtualType>
+
+</config>

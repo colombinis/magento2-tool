@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            module="[@VENDOR]_[@MODULE]"
+            id="[@VENDOR]_[@MODULE]::top_level"
+            title=" .:[@ENTITY_NAME]:."
+            translate="title"
+            sortOrder="9999"
+            resource="Magento_Backend::content"
+            />
+
+        <add
+            module="[@VENDOR]_[@MODULE]"
+            id="[@VENDOR]_[@MODULE]::redimirordenesgrilla"
+            title="List"
+            translate="title"
+
+            resource="Magento_Backend::content"
+            parent="[@VENDOR]_[@MODULE]::top_level"
+            action="[@MODULE_NAME]/grid/[@ENTITY_NAME_LOW]"
+            />
+
+    </menu>
+</config>

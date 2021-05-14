@@ -9,8 +9,8 @@ use [@VENDOR]\[@MODULE]\Api\Data\[@ENTITY_NAME]Interface;
 use [@VENDOR]\[@MODULE]\Api\Data\[@ENTITY_NAME]SearchResultInterface;
 use [@VENDOR]\[@MODULE]\Api\Data\[@ENTITY_NAME]SearchResultInterfaceFactory;
 use [@VENDOR]\[@MODULE]\Api\[@ENTITY_NAME]RepositoryInterface;
-use [@VENDOR]\[@MODULE]\Model\ResourceModel\[@MODULE]\CollectionFactory as itemsCollectionFactory;
-use [@VENDOR]\[@MODULE]\Model\ResourceModel\[@MODULE]\Collection;
+use [@VENDOR]\[@MODULE]\Model\ResourceModel\[@ENTITY_NAME]\CollectionFactory as itemsCollectionFactory;
+use [@VENDOR]\[@MODULE]\Model\ResourceModel\[@ENTITY_NAME]\Collection;
 
 
 class [@ENTITY_NAME]Repository implements [@ENTITY_NAME]RepositoryInterface

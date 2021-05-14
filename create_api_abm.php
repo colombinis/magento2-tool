@@ -19,7 +19,8 @@ require_once dirname(__FILE__)."/create_blank_module.php";
 //Inputs
 $nameEntity= _readline('Name Entity (eg: Blog) ',"Blog");
 $txtAttributes = _readline('Attributes (eg: [ { "name": "entity_id", "xsi:type": "int", "identity": true }, { "name": "title", "xsi:type": "varchar" }, { "name": "content", "xsi:type": "mediumtext" }, { "name": "created_at", "xsi:type": "timestamp" }, { "name": "updated_at", "xsi:type": "timestamp" } ]) ','[ { "name": "entity_id", "xsi:type": "int", "identity": true }, { "name": "title", "xsi:type": "varchar" }, { "name": "content", "xsi:type": "mediumtext" }, { "name": "created_at", "xsi:type": "timestamp" }, { "name": "updated_at", "xsi:type": "timestamp" } ]');
-$createGrid = yesNoQuestion("Create backend grid ?","yes","no");
+
+// $createGrid = yesNoQuestion("Create backend grid ?","yes","no");
 
 $attributesEntity = parseEntityAttributes($txtAttributes);
 
@@ -33,6 +34,7 @@ $attributesEntity = parseEntityAttributes($txtAttributes);
 
 //create db_schema.xml
 createFileDBSchema($gMODULE_ROOT , $gMODULE_NAME, $gVENDOR , $gMODULE ,$nameEntity,$attributesEntity);
+
 //create webapi.xml
 createFileWebapi($gMODULE_ROOT , $gMODULE_NAME, $gVENDOR , $gMODULE ,$nameEntity);
 
@@ -41,4 +43,20 @@ createApiInterfacesDBSchema($gMODULE_ROOT , $gMODULE_NAME, $gVENDOR , $gMODULE ,
 
 //create Model folder and models
 createModelStructure($gMODULE_ROOT , $gMODULE_NAME, $gVENDOR , $gMODULE ,$nameEntity,$attributesEntity);
+
+//create di.xml
+createDiGrid($gMODULE_ROOT , $gMODULE_NAME, $gVENDOR , $gMODULE ,$nameEntity);
+
+//create /adminhtml/menu.xml
+createMenuGrid($gMODULE_ROOT , $gMODULE_NAME, $gVENDOR , $gMODULE ,$nameEntity);
+
+//create /adminhtml/routes.xml
+createRoutesGrid($gMODULE_ROOT , $gMODULE_NAME, $gVENDOR , $gMODULE ,$nameEntity);
+
+//create handler file for grid view/adminhtml/layout/ menuid_grid_entityname.xml
+createHandlerLayoutGrid($gMODULE_ROOT , $gMODULE_NAME, $gVENDOR , $gMODULE ,$nameEntity);
+
+createUiGrid($gMODULE_ROOT , $gMODULE_NAME, $gVENDOR , $gMODULE ,$nameEntity,$attributesEntity);
+
+createControllerGrid($gMODULE_ROOT , $gMODULE_NAME, $gVENDOR , $gMODULE ,$nameEntity);
 
