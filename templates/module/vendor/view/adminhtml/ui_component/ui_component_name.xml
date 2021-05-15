@@ -31,7 +31,11 @@
             </item>
         </argument>
         <bookmark name="bookmarks"/>
+
         <columnsControls name="columns_controls"/>
+
+        <exportButton name="export_button"/>
+
         <filters name="listing_filters">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -50,6 +54,12 @@
     </listingToolbar>
 
     <columns name="spinner_columns">
+
+   <selectionsColumn name="ids">
+       <settings>
+            <visible>false</visible>
+        </settings>
+    </selectionsColumn>
 
         [@COLUMNSGRID]
 
