@@ -1,4 +1,11 @@
 <?php
+// echo "There are $argc arguments\n";
+
+// for ($i=0; $i < $argc; $i++) {
+//     echo $argv[$i] . "\n";
+// }
+
+// die();
 
 require_once(dirname(__FILE__)."/M2.php");
 
@@ -6,7 +13,9 @@ require_once(dirname(__FILE__)."/M2.php");
 $CURRENT= dirname(__FILE__);
 
 //Magento
-$MAGENTO_ROOT = realpath(join_path($CURRENT,"..",".."));
+$MAGENTO_ROOT = realpath(join_path($CURRENT,"..","..","src"));
+// echo "--> ".$MAGENTO_ROOT;
+// die();
 M2::init( $MAGENTO_ROOT);
 
 $MAGENTO_APP        = M2::getFolder("app");
