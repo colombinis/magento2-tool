@@ -6,7 +6,7 @@
         </item>
         <item name="spinner" xsi:type="string">spinner_columns</item>
     </argument>
-    <dataSource name="nameOfDataSource">
+    <!-- <dataSource name="[@TABLE_NAME]_grid_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
             <argument name="name" xsi:type="string">[@TABLE_NAME]_grid_data_source</argument>
@@ -22,6 +22,22 @@
                 </item>
             </argument>
         </argument>
+    </dataSource> -->
+    
+    <!--Opcion con filtro por orden_id reutiliza en un tab interno de la orden-->>
+    <dataSource name="[@TABLE_NAME]_grid_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <filterUrlParams>
+                <param name="order_id">*</param>
+            </filterUrlParams>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="[@TABLE_NAME]_grid_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
     </dataSource>
 
    <listingToolbar name="listing_top">
