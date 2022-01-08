@@ -13,7 +13,7 @@ require_once(dirname(__FILE__)."/M2.php");
 $CURRENT= dirname(__FILE__);
 
 //Magento
-$MAGENTO_ROOT = realpath(join_path($CURRENT,"..","..","src"));
+$MAGENTO_ROOT = realpath(join_path($CURRENT,"..",".."));
 // echo "--> ".$MAGENTO_ROOT;
 // die();
 M2::init( $MAGENTO_ROOT);
